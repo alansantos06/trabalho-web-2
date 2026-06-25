@@ -1,0 +1,59 @@
+body{
+    background:#1f1f1f;
+    min-height:100vh;
+}
+
+.card-dark{
+    background:#0f172a;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+.title-custom{
+    color:white;
+    text-align:center;
+}
+
+.label{
+    color:white;
+}
+
+.text-white{
+    color:white;
+}
+
+.center-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.success-btn{
+    width:100%;
+}
+
+.menu-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.card-blue{
+    background:#79d4ff;
+    padding:30px;
+    border-radius:10px;
+}
+
+.card-yellow{
+    background:#ffc107;
+    padding:30px;
+    border-radius:10px;
+}
+
+.error-card{
+    background:#6d0019;
+    color:white;
+    padding:25px;
+    border-radius:10px;
+}

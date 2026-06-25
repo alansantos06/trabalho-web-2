@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="center-box">
+
+<div class="card-dark" style="width:650px">
+
+<h1 class="title title-custom">
+
+Cadastro
+
+</h1>
+
+<form action="/register" method="POST">
+
+<div class="field">
+
+<label class="label">
+E-mail
+</label>
+
+<input
+class="input"
+type="email"
+name="email">
+
+</div>
+
+<div class="field">
+
+<label class="label">
+Senha
+</label>
+
+<input
+class="input"
+type="password"
+name="senha">
+
+</div>
+
+<hr>
+
+<div class="field">
+
+<label class="label">
+
+Qual template engine estamos usando?
+
+</label>
+
+<input
+class="input"
+type="text"
+name="pergunta1">
+
+</div>
+
+<div class="field">
+
+<label class="label">
+
+Qual biblioteca estamos usando para criptografar senhas?
+
+</label>
+
+<input
+class="input"
+type="text"
+name="pergunta2">
+
+</div>
+
+<button
+class="button is-success success-btn">
+
+Cadastrar
+
+</button>
+
+</form>
+
+<hr>
+
+<p class="text-white">
+
+Já possui conta?
+
+<a href="/login">
+Faça login
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>

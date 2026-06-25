@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<section class="section">
+
+<div class="container">
+
+<div class="card-dark">
+
+<h1 class="title title-custom">
+
+Área Comum
+
+</h1>
+
+<p class="text-white">
+
+Bem-vindo,
+<strong>
+<%= user.email %>
+</strong>
+
+</p>
+
+<p class="text-white">
+
+Sua role é:
+<strong>
+<%= user.role %>
+</strong>
+
+</p>
+
+<hr>
+
+<div class="menu-buttons">
+
+<a
+href="/pleno"
+class="button is-link">
+
+Área Pleno
+
+</a>
+
+<a
+href="/senior"
+class="button is-warning">
+
+Área Senior
+
+</a>
+
+<form
+action="/logout?_method=DELETE"
+method="POST">
+
+<button
+class="button is-danger">
+
+Sair
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
