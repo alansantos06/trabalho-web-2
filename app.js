@@ -1,27 +1,48 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const express = require('express')
-const cookieParser = require('cookie-parser')
-const methodOverride = require('method-override')
-const path = require('path')
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
+const path = require('path');
 
-const app = express()
+const sequelize = require('./config/database');
 
-require('./models')
+const app = express();
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+// Importa os modelos
+require('./models');
 
-app.use(cookieParser())
-app.use(methodOverride('_method'))
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.set('view engine', 'ejs')
+app.use(cookieParser());
+app.use(methodOverride('_method'));
 
-app.use(express.static(path.join(__dirname, 'public')))
+// EJS
+app.set('view engine', 'ejs');
 
-app.use('/', require('./routes/authRoutes'))
-app.use('/', require('./routes/pageRoutes'))
+// Arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, () => {
-    console.log('Servidor rodando')
-})
+// Rotas
+app.use('/', require('./routes/authRoutes'));
+app.use('/', require('./routes/pageRoutes'));
+
+// Conecta ao banco e inicia o servidor
+sequelize.authenticate()
+    .then(() => {
+        console.log('✅ Conectado ao Supabase!');
+
+        return sequelize.sync();
+    })
+    .then(() => {
+        console.log('✅ Tabelas sincronizadas!');
+
+        app.listen(3000, () => {
+            console.log('🚀 Servidor rodando na porta 3000');
+        });
+    })
+    .catch((err) => {
+        console.error('❌ Erro ao conectar ao banco:', err);
+    });

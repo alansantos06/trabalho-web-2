@@ -1,9 +1,9 @@
-const sequelize = require('../config/database');
-const Usuario = require('./Usuario');
+const { Sequelize } = require('sequelize');
 
-sequelize.sync();
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database.sqlite',
+    logging: false
+});
 
-module.exports = {
-    sequelize,
-    Usuario
-};
+module.exports = sequelize;
