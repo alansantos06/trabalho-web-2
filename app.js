@@ -29,18 +29,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/authRoutes'));
 app.use('/', require('./routes/pageRoutes'));
 
+const PORT = process.env.PORT || 3000;
+
 // Conecta ao banco e inicia o servidor
 sequelize.authenticate()
     .then(() => {
-        console.log('✅ Conectado ao Supabase!');
+        console.log('✅ Banco SQLite conectado!');
 
         return sequelize.sync();
     })
     .then(() => {
         console.log('✅ Tabelas sincronizadas!');
 
-        app.listen(3000, () => {
-            console.log('🚀 Servidor rodando na porta 3000');
+        app.listen(PORT, () => {
+            console.log(`🚀 Servidor rodando na porta ${PORT}`);
         });
     })
     .catch((err) => {
